@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","names":[],"sources":["../../src/i18n/index.js"],"sourcesContent":["// Placeholder be overridden by `make pull_translations`\nexport default [];\n"],"mappings":"AAAA;AACA,eAAe,EAAE","ignoreList":[]}
