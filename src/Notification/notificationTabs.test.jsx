@@ -75,8 +75,22 @@ describe('Notification Tabs test cases.', () => {
       const tabs = screen.queryAllByRole('tab');
       const selectedTab = tabs.find(tab => tab.getAttribute('aria-selected') === 'true');
 
-      expect(tabs.length).toEqual(5);
+      expect(tabs.length).toEqual(6);
       expect(within(selectedTab).queryByText('discussion')).toBeInTheDocument();
+    });
+  });
+
+  it('Displays a learner-friendly label for the live sessions tab.', async () => {
+    await renderComponent();
+
+    await waitFor(async () => {
+      const bellIcon = await screen.findByTestId('notification-bell-icon');
+      await act(async () => { fireEvent.click(bellIcon); });
+
+      const liveSessionsTab = screen.getAllByRole('tab')
+        .find(tab => tab.getAttribute('data-rb-event-key') === 'live_sessions');
+      expect(liveSessionsTab).toBeDefined();
+      expect(within(liveSessionsTab).getByText('Live sessions')).toBeInTheDocument();
     });
   });
 

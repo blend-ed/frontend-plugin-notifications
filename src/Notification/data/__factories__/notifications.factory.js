@@ -8,6 +8,7 @@ Factory.define('notificationsCount')
     discussion: 20,
     grades: 10,
     authoring: 5,
+    live_sessions: 2,
   })
   .attr('showNotificationsTray', true)
   .attr('isNewNotificationViewEnabled', true);

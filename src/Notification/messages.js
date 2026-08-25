@@ -61,6 +61,11 @@ const messages = defineMessages({
     defaultMessage: 'Notification bell icon',
     description: 'Alt message for notification bell icon',
   },
+  liveSessionsTab: {
+    id: 'notification.app.liveSessions',
+    defaultMessage: 'Live sessions',
+    description: 'Notification tray tab for live-session reminders and updates',
+  },
 });
 
 export default messages;

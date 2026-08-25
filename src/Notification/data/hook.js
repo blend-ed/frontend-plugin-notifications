@@ -67,12 +67,18 @@ export function useNotification() {
   const fetchAppsNotificationCount = useCallback(async () => {
     try {
       const data = await getNotificationCounts();
-      const normalisedData = normalizeNotificationCounts(camelCaseObject(data));
+      const normalisedData = camelCaseObject(data);
+
+      // Application names are opaque backend identifiers, not response field
+      // names. Preserve values such as `live_sessions` so follow-up list and
+      // seen requests send the exact app_name understood by the API.
+      normalisedData.countByAppName = data.count_by_app_name || data.countByAppName;
+      const normalizedCounts = normalizeNotificationCounts(normalisedData);
 
       const {
         countByAppName, appIds, notificationApps, count, showNotificationsTray, notificationExpiryDays,
         isNewNotificationViewEnabled,
-      } = normalisedData;
+      } = normalizedCounts;
 
       return {
         tabsCount: { count, ...countByAppName },

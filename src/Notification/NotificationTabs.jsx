@@ -3,13 +3,16 @@ import React, {
 } from 'react';
 
 import { Tab, Tabs } from '@openedx/paragon';
+import { useIntl } from '@edx/frontend-platform/i18n';
 
 import NotificationSections from './NotificationSections';
+import messages from './messages';
 import { useFeedbackWrapper } from './utils';
 import { notificationsContext } from './context/notificationsContext';
 import { useNotification } from './data/hook';
 
 const NotificationTabs = () => {
+  const intl = useIntl();
   useFeedbackWrapper();
   const {
     appName, handleActiveTab, tabsCount, appsId, updateNotificationData,
@@ -50,7 +53,7 @@ const NotificationTabs = () => {
             <Tab
               key={app}
               eventKey={app}
-              title={app}
+              title={app === 'live_sessions' ? intl.formatMessage(messages.liveSessionsTab) : app}
               notification={tabsCount[app]}
               tabClassName="pt-0 py-2 px-2.5 d-flex border-top-0 mb-0 align-items-center line-height-24 text-capitalize"
               data-testid={`notification-tab-${app}`}

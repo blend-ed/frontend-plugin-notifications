@@ -8,6 +8,7 @@ import {
   Report,
   Verified,
   Newspaper,
+  VideoCamera,
 } from '@openedx/paragon/icons';
 
 export const splitNotificationsByTime = (notificationList) => {
@@ -46,6 +47,13 @@ export const getIconByType = (type) => {
     response_endorsed: { icon: Verified, class: 'text-primary-500' },
     response_endorsed_on_thread: { icon: Verified, class: 'text-primary-500' },
     course_update: { icon: Newspaper, class: 'text-primary-500' },
+    live_session_reminder: { icon: VideoCamera, class: 'text-primary-500' },
+    live_session_scheduled: { icon: VideoCamera, class: 'text-primary-500' },
+    live_session_rescheduled: { icon: VideoCamera, class: 'text-primary-500' },
+    live_session_cancelled: { icon: VideoCamera, class: 'text-danger' },
+    live_session_starting_now: { icon: VideoCamera, class: 'text-success' },
+    host_session_reminder: { icon: VideoCamera, class: 'text-primary-500' },
+    host_session_starting_now: { icon: VideoCamera, class: 'text-success' },
   };
   return iconMap[type] || { icon: PostOutline, class: 'text-primary-500' };
 };
