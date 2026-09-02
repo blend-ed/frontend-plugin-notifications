@@ -78,9 +78,7 @@ export function useNotification() {
       const data = await getNotificationCounts();
       const normalisedData = camelCaseObject(data);
 
-      // Application names are opaque backend identifiers, not response field
-      // names. Preserve values such as `live_sessions` so follow-up list and
-      // seen requests send the exact app_name understood by the API.
+      // Application IDs must not be camel-cased.
       normalisedData.countByAppName = data.count_by_app_name || data.countByAppName;
       const normalizedCounts = normalizeNotificationCounts(normalisedData);
       const {

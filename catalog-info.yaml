@@ -7,7 +7,7 @@ metadata:
   name: "frontend-plugin-notifications"
   description: "Repository for Notification plugin."
   links:
-    - url: "https://github.com/edx/frontend-plugin-notifications/blob/master/README.rst"
+    - url: "https://github.com/Hyper-Academy/frontend-plugin-notifications/blob/master/README.md"
       title: "README"
       icon: "Article"
 spec:
